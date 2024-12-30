@@ -1,0 +1,5 @@
+packages:
+  - scripts/**
+  - scriptTest/**
+  - transactions/**
+  - transactionTest/**
