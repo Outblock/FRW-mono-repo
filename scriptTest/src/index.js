@@ -2,7 +2,11 @@ import * as fcl from '@onflow/fcl'
 import * as t from '@onflow/types'
 import { send as httpSend } from '@onflow/transport-http'
 
-import { queryScripts, exportScripts } from '@frw/scripts'
+import {
+  queryScripts,
+  exportScripts,
+  exportScript,
+} from '@outblock/frw-scripts'
 
 const fclInit = () => {
   return fcl
@@ -16,16 +20,20 @@ const fclInit = () => {
 }
 
 const main = async () => {
+  const scriptMap = await exportScripts()
+  const script = await exportScript('bridges/calculateBridgeFee', {
+    '0xFlowEVMBridge': '0x1e4aa0b87d10b141',
+  })
+  console.log(script)
+
   fclInit()
   let res = await queryScripts('staking/getApr', [], {})
   console.log(res)
-
   res = await queryScripts(
     'basic/getAccountInfo',
     [fcl.arg('0x1d7e57aa55817448', t.Address)],
     {},
   )
-
   console.log(res)
 }
 

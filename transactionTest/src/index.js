@@ -3,9 +3,13 @@ import * as t from '@onflow/types'
 import { send as httpSend } from '@onflow/transport-http'
 import { getAuthz } from './utils/authz.js'
 
-import { executeTransaction, exportScripts } from '@frw/transactions'
+import {
+  executeTransaction,
+  exportScripts,
+  exportScript,
+} from '@outblock/frw-transactions'
 
-import { address, pk } from '../config/constants.js'
+import { address } from './config/constants.js'
 
 const fclInit = () => {
   return fcl
@@ -22,10 +26,16 @@ const main = async () => {
   fclInit()
 
   let authz = getAuthz(address, exportScripts)
-  // let res = await exportScripts()
+
+  let res = await exportScripts()
+  console.log(res)
+
+  // res = await executeTransaction('basic/temp', [], { authz })
   // console.log(res)
 
-  res = await executeTransaction('basic/temp', [], { authz })
+  res = await exportScript('bridges/onboardByTypeIdentifier', {
+    '0xFlowEVMBridge': '0x1e4aa0b87d10b141',
+  })
   console.log(res)
 }
 

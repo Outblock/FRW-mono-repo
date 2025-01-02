@@ -16,7 +16,7 @@ const underscoreToCamelCase = (fileName) => {
   return name
 }
 
-const readDirRecursive = async (dirPath) => {
+const readDirRecursive = async (dirPath, addressMapping) => {
   // let resolvedPath = path.resolve(dirPath)
 
   let files = await fsPromises.readdir(dirPath)
@@ -27,11 +27,12 @@ const readDirRecursive = async (dirPath) => {
     let stats = await fsPromises.stat(filePath)
     // console.log(stats)
     if (stats.isDirectory()) {
-      await readDirRecursive(filePath)
+      await readDirRecursive(filePath, addressMapping)
     } else {
       if (filePath.indexOf('.cdc') == -1 || filePath.indexOf('_test.cdc') > 0)
         continue
-      const fileContent = await fsPromises.readFile(filePath, 'utf8')
+      let fileContent = await fsPromises.readFile(filePath, 'utf8')
+      fileContent = replaceAddress(fileContent, addressMapping)
       // console.log(`Content of ${filePath}: ${data}`)
       const pathArr = filePath.split('/')
       const key = pathArr[pathArr.length - 2]
@@ -51,11 +52,24 @@ const readDirRecursive = async (dirPath) => {
   return cadebceScripts
 }
 
-export const readCadenceScripts = async (path = './') => {
+export const readCadenceScripts = async (path = './', addressMapping) => {
   return await readDirRecursive(path)
 }
 
-export const readScript = async (path) => {
+export const readScript = async (path, addressMapping) => {
   const fileContent = await fsPromises.readFile(path, 'utf8')
-  return fileContent
+  return replaceAddress(fileContent, addressMapping)
+}
+
+export const replaceAddress = (script, addressMapping = {}) => {
+  let keys = Object.keys(addressMapping)
+
+  keys.forEach((key) => {
+    let addr = addressMapping[key]
+    if (addr) {
+      script = script.replace(key, addressMapping[key])
+    }
+  })
+
+  return script
 }

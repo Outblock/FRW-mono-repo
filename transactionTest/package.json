@@ -1,5 +1,5 @@
 {
-    "name": "@frw/transactionTest",
+    "name": "@outblock/frw-transactionTest",
     "version": "0.0.1",
     "description": "",
     "type": "module",
@@ -16,7 +16,7 @@
         "@onflow/fcl": "^1.13.4",
         "@onflow/types": ">=1.1.0",
         "@onflow/transport-http": "^1.10.5",
-        "@frw/transactions": "workspace:*"
+        "@outblock/frw-transactions": "workspace:*"
     },
     "devDependencies": {
         "microbundle": "0.12.0-next.8",

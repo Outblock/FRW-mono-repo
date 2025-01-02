@@ -1,10 +1,10 @@
 import * as fcl from '@onflow/fcl'
-import { readCadenceScripts } from './cadence'
+import { readCadenceScripts, replaceAddress } from './cadence'
 
 let scriptsMap = null
 
-export const exportScripts = async (path) => {
-  scriptsMap = await readCadenceScripts(path)
+export const exportScripts = async (addressMapping = {}) => {
+  scriptsMap = await readCadenceScripts('./', addressMapping)
   return scriptsMap
 }
 
@@ -23,14 +23,7 @@ export const executeTransaction = async (
   if (script == null) {
     throw new Error(`Script ${path} not found`)
   }
-  let keys = Object.keys(addressMapping)
-
-  keys.forEach((key) => {
-    let addr = addressMapping[key]
-    if (addr) {
-      script = script.replace(key, addressMapping[key])
-    }
-  })
+  script = replaceAddress(script, addressMapping)
 
   const response = await fcl.send([
     fcl.transaction(script),
@@ -40,6 +33,18 @@ export const executeTransaction = async (
     fcl.authorizations(opts.auths || [opts.authz]),
     fcl.limit(opts.limit || 9999),
   ])
-  
+
   return await fcl.decode(response)
 }
+
+
+export const exportScript = async (scriptPath, addressMapping = {}) => {
+    let pathArr = scriptPath.split('/')
+    if (scriptsMap == null) {
+      scriptsMap = await readCadenceScripts()
+    }
+    let script = scriptsMap[pathArr[0]][pathArr[1]]
+    script = replaceAddress(script, addressMapping)
+    return script
+  }
+  

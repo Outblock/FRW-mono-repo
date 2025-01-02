@@ -1,5 +1,5 @@
 {
-  "name": "@frw/transactions",
+  "name": "@outblock/frw-transactions",
   "version": "0.0.1",
   "description": "Flow transactions",
   "license": "Apache-2.0",
