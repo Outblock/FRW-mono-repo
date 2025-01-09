@@ -50,6 +50,31 @@ importers:
         specifier: 0.12.0-next.8
         version: 0.12.0-next.8
 
+  temp:
+    dependencies:
+      '@onflow/config':
+        specifier: '>=1.1.0'
+        version: 1.5.1
+      '@onflow/fcl':
+        specifier: '>=1.4.0 || >=1.5.0 || >=1.6.0 || >=1.7.0'
+        version: 1.13.4(encoding@0.1.13)(google-protobuf@3.21.4)(jiti@2.4.2)(postcss@8.4.49)(react@18.3.1)
+      '@onflow/six-add-new-key':
+        specifier: ^0.2.2
+        version: 0.2.2(@onflow/fcl@1.13.4(encoding@0.1.13)(google-protobuf@3.21.4)(jiti@2.4.2)(postcss@8.4.49)(react@18.3.1))(@onflow/types@1.4.1)
+      '@onflow/types':
+        specifier: '>=1.1.0'
+        version: 1.4.1
+    devDependencies:
+      '@outblock/frw-scripts':
+        specifier: workspace:*
+        version: link:../scripts
+      '@outblock/frw-transactions':
+        specifier: workspace:*
+        version: link:../transactions
+      microbundle:
+        specifier: 0.12.0-next.8
+        version: 0.12.0-next.8
+
   transactionTest:
     dependencies:
       '@onflow/fcl':
@@ -867,6 +892,12 @@ packages:
 
   '@onflow/sdk@1.5.6':
     resolution: {integrity: sha512-bvk2V4FAYH8M/2kSQK9YnETK4FY564daMx2nQjochwKRWzkax22R5qquQMQ3nj6TQauouMmtNzgTS1JNCyuBcA==}
+
+  '@onflow/six-add-new-key@0.2.2':
+    resolution: {integrity: sha512-mKyaNaCgejJGnA7MyPCkoE6oiZ32izWRhUp4EsagSsPPnhc1aevfoL2L9WiHCWWKl3RTHeaToVKWPHZ1tx39Tg==}
+    peerDependencies:
+      '@onflow/fcl': '>=1.4.0 || >=1.5.0 || >=1.6.0 || >=1.7.0'
+      '@onflow/types': '>=1.1.0'
 
   '@onflow/transport-http@1.10.5':
     resolution: {integrity: sha512-Gh1TWLe/ZfntVWmvex3Itz6OPxLS6D6cWj9L+52IhgmZLdLNgQTDxyddCg2WaNsyKch20u7T3vHXPyOtN52yBA==}
@@ -5167,6 +5198,11 @@ snapshots:
       - encoding
       - supports-color
       - utf-8-validate
+
+  '@onflow/six-add-new-key@0.2.2(@onflow/fcl@1.13.4(encoding@0.1.13)(google-protobuf@3.21.4)(jiti@2.4.2)(postcss@8.4.49)(react@18.3.1))(@onflow/types@1.4.1)':
+    dependencies:
+      '@onflow/fcl': 1.13.4(encoding@0.1.13)(google-protobuf@3.21.4)(jiti@2.4.2)(postcss@8.4.49)(react@18.3.1)
+      '@onflow/types': 1.4.1
 
   '@onflow/transport-http@1.10.5(encoding@0.1.13)':
     dependencies:

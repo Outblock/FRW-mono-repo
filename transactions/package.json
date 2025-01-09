@@ -1,11 +1,11 @@
 {
   "name": "@outblock/frw-transactions",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Flow transactions",
   "license": "Apache-2.0",
   "type": "module",
   "source": "src/index.js",
-  "main": "dist/index.umd.js",
+  "main": "dist/index.js",
   "module": "dist/index.module.mjs",
   "exports": {
     "require": "./dist/index.js",
