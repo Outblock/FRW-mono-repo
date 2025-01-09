@@ -1,6 +1,6 @@
-import LockedTokens from 0x8d0e87b65159ae63
-import FlowIDTableStaking from 0x8624b52f9ddcd04a
-import FlowEpoch from 0x8624b52f9ddcd04a
+import LockedTokens from 0xLockedTokens
+import FlowIDTableStaking from 0xFlowIDTableStaking
+import FlowEpoch from 0xFlowEpoch
 
 access(all)struct EpochInfo {
   access(all)let currentEpochCounter: UInt64

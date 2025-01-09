@@ -1,8 +1,8 @@
 import FungibleToken from 0xFungibleToken
-import FlowToken from 0x1654653399040a61
-import LockedTokens from 0x8d0e87b65159ae63
-import FlowIDTableStaking from 0x8624b52f9ddcd04a
-import FlowStakingCollection from 0x8d0e87b65159ae63
+import FlowToken from 0xFlowToken
+import LockedTokens from 0xLockedTokens
+import FlowIDTableStaking from 0xFlowIDTableStaking
+import FlowStakingCollection from 0xFlowStakingCollection
 
 /// This transaction sets up an account to use a staking collection
 /// It will work regardless of whether they have a regular account, a two-account locked tokens setup,

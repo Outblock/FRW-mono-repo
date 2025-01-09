@@ -67,7 +67,7 @@ export const replaceAddress = (script, addressMapping = {}) => {
   keys.forEach((key) => {
     let addr = addressMapping[key]
     if (addr) {
-      const regex = new RegExp(`${key}\n`)
+      const regex = new RegExp(`${key}\n`, 'g')
       script = script.replace(regex, `${addressMapping[key]}\n`)
     }
   })

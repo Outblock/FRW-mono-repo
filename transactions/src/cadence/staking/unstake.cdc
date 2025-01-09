@@ -1,4 +1,4 @@
- import FlowStakingCollection from 0x8d0e87b65159ae63
+ import FlowStakingCollection from 0xFlowStakingCollection
 
 /// Requests unstaking for the specified node or delegator in the staking collection
 

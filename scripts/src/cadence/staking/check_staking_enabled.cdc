@@ -1,4 +1,4 @@
-import FlowIDTableStaking from 0x8624b52f9ddcd04a
+import FlowIDTableStaking from 0xFlowIDTableStaking
 
 access(all) fun main():Bool {
     return FlowIDTableStaking.stakingEnabled()

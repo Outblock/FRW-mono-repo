@@ -1,4 +1,4 @@
-import FlowStakingCollection from 0x8d0e87b65159ae63
+import FlowStakingCollection from 0xFlowStakingCollection
 
 /// Registers a delegator in the staking collection resource
 /// for the specified nodeID and the amount of tokens to commit

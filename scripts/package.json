@@ -1,6 +1,6 @@
 {
   "name": "@outblock/frw-scripts",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Flow scripts",
   "license": "Apache-2.0",
   "devDependencies": {

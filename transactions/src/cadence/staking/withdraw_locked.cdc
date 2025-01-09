@@ -1,6 +1,6 @@
-import FungibleToken from 0xFUNGIBLETOKENADDRESS
-import FlowToken from 0xFLOWTOKENADDRESS
-import LockedTokens from 0xLOCKEDTOKENADDRESS
+import FungibleToken from 0xFungibleToken
+import FlowToken from 0xFlowToken
+import LockedTokens from 0xLockedTokens
 
 transaction(amount: UFix64) {
 
